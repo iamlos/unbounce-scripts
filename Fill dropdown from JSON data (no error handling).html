@@ -1,0 +1,30 @@
+<script type="text/javascript">
+	
+	var url = 'https://gist.githubusercontent.com/markwainwright/9517529/raw/dropdown_data.json';
+	var dropdownElement;
+
+	// The JSONP file runs this function once loaded.
+	function dropdown(json){
+		var options = ' ';
+		$.each(json.options, function(){
+			options += '<option value="'+this.value+'">'+this.title+'</option>';
+		});
+		dropdownElement.html(options);
+	}
+	
+	$(function(){
+		dropdownElement = $('#my_dropdown');
+		
+		//Make an AJAX request to the JSONP file.
+		$.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'jsonp'
+		});
+	});
+	
+</script>
+
+<select id="my_dropdown">
+	<option disabled>Loading options...</option>
+</select>
