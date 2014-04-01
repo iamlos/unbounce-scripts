@@ -13,9 +13,7 @@ $(function(){
   var form = $('.lp-pom-form').eq(0);
   var fields = $('div.lp-pom-form-field');
   var button = $('.lp-pom-form .lp-pom-button').eq(0);
-  if(submitPlacement != 'manual'){
-    fields = fields.add(button);
-  }
+  if(submitPlacement != 'manual') fields = fields.add(button);
   
   // Work out the horizontal offset of fields
   var width = fields.eq(0).width() + spacing;
@@ -31,7 +29,6 @@ $(function(){
 
   // Loop through each field
   for(var i=1; i<fields.length; i++){
-
     field = fields.eq(i);
 
     // Add a new 'width' amount to last field's left position for placement later
@@ -46,12 +43,11 @@ $(function(){
 
       // Reset tallest to current field, for now
       tallest = field.height();
-
     }
 
     var thisTop = top;
 
-    if(field.attr('class').indexOf('lp-pom-button') != -1){
+    if(field.is('.lp-pom-button')){
 
       if(submitPlacement == 'newline'){
         // Put button on new line
@@ -65,9 +61,7 @@ $(function(){
 
     // If it's a field without a label, add additional vertical offset
     }else if(!$(field).children('label').length){
-
       thisTop = top + 19;
-
     }
 
     // Position the field
