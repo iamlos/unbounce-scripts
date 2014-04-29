@@ -4,7 +4,7 @@ $(function(){
 	var speed = 1000;
 
 	// Find links that are #anchors
-	$('a[href^=#]').click(function(event){
+	$('a[href^=#]').not('.lp-pom-form .lp-pom-button').click(function(event){
 
 	// Prevent browser from navigating to link
 	event.preventDefault();
