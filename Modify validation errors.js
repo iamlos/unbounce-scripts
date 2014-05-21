@@ -1,13 +1,12 @@
 function ValidationErrors(){
   this.data = window.module.lp.form.data;
-  this.title = $('#' + this.data.errorContainerId).find('div.error');
   this.messages = this.data.validationMessages;
   this.rules = this.data.validationRules;
 
   this.changeTitle = function(titleText) {
     var _this = this;
     $(function(){
-      _this.title.text(titleText);
+      $('#' + _this.data.errorContainerId).find('div.error').text(titleText);
     });
   };
 
