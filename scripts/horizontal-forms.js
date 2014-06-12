@@ -13,7 +13,7 @@ lp.jQuery(function($) {
   var form = $('.lp-pom-form').eq(0);
   var fields = $('div.lp-pom-form-field');
   var button = $('.lp-pom-form .lp-pom-button').eq(0);
-  if ( submitPlacement != 'manual' ) fields = fields.add(button);
+  if ( submitPlacement !== 'manual' ) fields = fields.add(button);
 
   // Work out the horizontal offset of fields
   var width = fields.eq(0).width() + spacing;

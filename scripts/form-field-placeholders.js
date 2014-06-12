@@ -23,7 +23,7 @@ lp.jQuery(function($) {
 
         // Adds validation rule that fields cannot be equal to their placeholder (unless that value was typed in)
         lp.jQuery.validator.addMethod('notEqual', function(value, element, placeholder) {
-          return this.optional(element) || $(element).attr('data-placeholder-active') !== 'true' || value != placeholder;
+          return this.optional(element) || $(element).attr('data-placeholder-active') !== 'true' || value !== placeholder;
         }, function(value, element) {
           return messages[ $(element).attr('id') ].required;
         });
@@ -31,7 +31,7 @@ lp.jQuery(function($) {
         // Applies this rule to all required fields
         for ( var id in placeholders ) {
           if ( $( '#'+id ).length ) {
-            if ( typeof messages[id].required != 'undefined' ) {
+            if ( typeof messages[id].required !== 'undefined' ) {
               rules[id].notEqual = placeholders[id];
             } else {
               rules[id] = {};
