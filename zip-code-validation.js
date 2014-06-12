@@ -1,8 +1,9 @@
-$(function(){
+lp.jQuery(function(){
 
-  // Change this to the name of your ZIP code field
+  // The name of your ZIP code field
   var zipField = 'zip';
 
+  // The desired error message
   var zipError = 'ZIP code must contain five numbers only';
 
   var zipRule = window.module.lp.form.data.validationRules[zipField];
