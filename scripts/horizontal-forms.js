@@ -1,13 +1,7 @@
-function HorizontalForm() {
+function HorizontalForm(spacing, submitPlacement) {
 
-  // Spacing between fields, in pixels:
-  this.spacing = 20;
-
-  // Options for the submit button placement are 'inline', 'newline' or 'manual':
-  // Manual means the script won't touch the submit button - it can be positioned in the builder.
-  this.submitPlacement = 'inline';
-
-  // There's usually no need to change anything beyond here.
+  this.spacing = spacing;
+  this.submitPlacement = submitPlacement;
 
   // Grab all form fields and the submit button
   this.form = $('.lp-pom-form').eq(0);
@@ -98,4 +92,4 @@ HorizontalForm.prototype.layout = function() {
 
 };
 
-new HorizontalForm();
+//new HorizontalForm(20, 'inline');
