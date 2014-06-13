@@ -1,0 +1,24 @@
+function desktop() {
+  $('#lp-pom-button-9 span').css('color', 'red');
+}
+
+function mobile() {
+  $('#lp-pom-button-9 span').css('color', 'green');
+}
+
+function runCorrectScript() {
+  var breakpoint = 600;
+  if ( $(window).width() <= breakpoint ) {
+    mobile();
+  }else{
+    desktop();
+  }
+}
+
+// Run on load
+$(function(){
+  runCorrectScript();
+});
+
+// Run on resize
+$(window).resize(runCorrectScript);
