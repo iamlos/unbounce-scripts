@@ -1,7 +1,7 @@
 function yourSubmitFunction(e, $) {
   e.preventDefault();
 
-  // Your code goes in here
+  // Your code goes here
   alert('Form has been submitted.');
 
   // If your code is asynchronous, call this final line as a callback to your code instead

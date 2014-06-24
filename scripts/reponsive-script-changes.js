@@ -3,10 +3,12 @@ function responsiveScript() {
 
   if ( $(window).width() <= breakpoint ) {
 
+    alert('Mobile');
     // Your mobile code goes here
 
   }else{
 
+    alert('Desktop');
     // Your desktop code goes here
 
   }

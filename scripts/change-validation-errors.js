@@ -10,11 +10,10 @@ function ValidationErrors($) {
   };
 
   this.changeField = function(field, required, invalid) {
-    if ( messages[field] ) {
-      messages[field].required = required;
-      if ( invalid && rules[field].email ) messages[field].email = invalid;
-      if ( invalid && rules[field].phone ) messages[field].phone = invalid;
-    }
+    if ( !messages[field] ) return;
+    messages[field].required = required;
+    if ( invalid && rules[field].email ) messages[field].email = invalid;
+    if ( invalid && rules[field].phone ) messages[field].phone = invalid;
   };
 }
 var errors = new ValidationErrors(lp.jQuery);

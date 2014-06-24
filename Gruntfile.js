@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           }
         },
         banner: '<script>\n\n' +
-                '  // unbounce-horizontal-forms <%= grunt.template.today("dd-mm-yyyy") %>\n\n  ',
+                '  // unbounce-horizontal-forms <%= grunt.template.today("dd-mm-yyyy") %>\n  ',
         footer: '  \n\n' +
                 '  // First parameter is spacing between fields\n' +
                 '  // Second parameter is submit button placement. Options:\n' +

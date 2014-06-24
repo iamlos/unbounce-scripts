@@ -1,23 +1,24 @@
 function HorizontalForm(spacing, submitPlacement) {
+  var self = this;
 
   this.spacing = spacing;
   this.submitPlacement = submitPlacement;
+  this.$ = lp.jQuery;
 
   // Grab all form fields and the submit button
-  this.form = $('.lp-pom-form').eq(0);
-  this.fields = $('div.lp-pom-form-field');
-  this.button = $('.lp-pom-form .lp-pom-button').eq(0);
+  this.form = this.$('.lp-pom-form').eq(0);
+  this.fields = this.$('div.lp-pom-form-field');
+  this.button = this.$('.lp-pom-form .lp-pom-button').eq(0);
   if ( this.submitPlacement !== 'manual' ) this.fields = this.fields.add( this.button );
-  var _this = this;
 
   // Lay the form out when ready
-  lp.jQuery(function(){
-    _this.layout();
+  this.$(function(){
+    self.layout();
   });
 
   // Re-layout when breakpoint changes
-  lp.jQuery(window).resize(function() {
-    _this.layout();
+  this.$(window).resize(function() {
+    self.layout();
   });
 }
 
@@ -30,7 +31,7 @@ HorizontalForm.prototype.layout = function() {
   var tallest = this.fields.eq(0).height();
 
   // Get the maximum width the form can be
-  var maxWidth = $('.lp-pom-block').eq(0).width() - this.form.position().left;
+  var maxWidth = this.$('.lp-pom-block').eq(0).width() - this.form.position().left;
 
   var top = 0;
   var left = 0;
@@ -68,7 +69,7 @@ HorizontalForm.prototype.layout = function() {
       }
 
     // If it's a field without a label, add additional vertical offset
-    } else if ( !$(field).children('label').length ) {
+    } else if ( !this.$(field).children('label').length ) {
       thisTop = top + 19;
     }
 
