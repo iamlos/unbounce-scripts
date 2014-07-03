@@ -1,11 +1,11 @@
-// Define your placeholder texts here, corresponding to Unbounce's field names
-var placeholders = {
-  'first_name': 'First Name',
-  'last_name': 'Last Name',
-  'email': 'Email'
-};
-
 lp.jQuery(function($) {
+
+  // Define your placeholder texts here, corresponding to Unbounce's field names
+  var placeholders = {
+    'first_name': 'First Name',
+    'last_name': 'Last Name',
+    'email': 'Email'
+  };
 
   // Sets the HTML5 placeholders
   for ( var id in placeholders ) {
