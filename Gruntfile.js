@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         newcap: true,
         noempty: true,
         nonbsp: true,
-        quotmark: 'single',
+        //quotmark: 'single',
         trailing: false
       }
     },
