@@ -39,8 +39,8 @@ module.exports = function(grunt) {
                 '</script>'
       },
       build: {
-        src: 'scripts/horizontal-forms.js',
-        dest: 'scripts/horizontal-forms.min.html'
+        src: 'scripts/form-horizontal.js',
+        dest: 'scripts/form-horizontal.min.html'
       }
     }
 

@@ -12,7 +12,7 @@ lp.jQuery(function($){
   };
 
   $.each(values, function(oldVal, newVal) {
-    $('select' + id +' option[value="' + oldVal + '"]').val( newVal );
+    $('select' + id +' option[value="' + oldVal + '"]').val(newVal);
   });
 
 });
