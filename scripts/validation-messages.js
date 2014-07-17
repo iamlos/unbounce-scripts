@@ -19,7 +19,7 @@ function ValidationErrors() {
 var errors = new ValidationErrors(lp.jQuery);
 
 // Change the title bar of the validation error box
-errors.changeTitle('Please fix these issues:');
+errors.changeTitle("Please fix these issues:");
 
 // Change the error text for specific fields. The first message is shown when nothing is
 // entered and the second is shown when an invalid email/phone number is entered.

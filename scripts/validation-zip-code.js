@@ -1,19 +1,13 @@
-lp.jQuery(function(){
+lp.jQuery(function($) {
 
-  // The name of your ZIP code field
-  var zipField = 'zip';
+  // Config
+  var field = 'email';
+  var message = 'Please enter a valid ZIP code';
 
-  // The desired error message
-  var zipError = 'ZIP code must contain five numbers only';
-
-  var zipRule = window.module.lp.form.data.validationRules[zipField];
-  zipRule.digits = true;
-  zipRule.minlength = 5;
-  zipRule.maxlength = 5;
-
-  var zipMessage = window.module.lp.form.data.validationMessages[zipField];
-  zipMessage.digits = zipError;
-  zipMessage.minlength = zipError;
-  zipMessage.maxlength = zipError;
+  // Define the rule and apply it to the field
+  $.validator.addMethod('zipCode', function(value) {
+    return !isNaN(value) && value % 1 === 0 && value.length === 5;
+  }, message);
+  module.lp.form.data.validationRules[field].zipCode = true;
 
 });
