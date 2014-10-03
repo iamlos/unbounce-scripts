@@ -37,11 +37,11 @@ HorizontalForm.prototype.layout = function() {
   var left = 0;
 
   // Loop through each field
-  for ( var i = 1 ; i < this.fields.length ; i ++ ) {
+  for ( var i = 0 ; i < this.fields.length ; i ++ ) {
     field = this.fields.eq(i);
 
     // Add a new 'width' amount to last field's left position for placement later
-    left = left + width;
+    left = i === 0 ? left : left + width;
 
     // Check if the right edge of this field will be beyond maximum width
     if ( left + width > maxWidth ) {
