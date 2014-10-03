@@ -65,7 +65,8 @@ HorizontalForm.prototype.layout = function() {
       } else {
         // Format button to better align with form fields
         thisTop = top + 19;
-        field.css('height', '32px');
+        var submitHeight = this.form.find(':text').eq(0).height();
+        field.css('height', submitHeight - 1 + 'px');
       }
 
     // If it's a field without a label, add additional vertical offset
