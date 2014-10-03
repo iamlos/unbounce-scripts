@@ -8,6 +8,8 @@ lp.jQuery(function($) {
   $.validator.addMethod('zipCode', function(value) {
     return !isNaN(value) && value % 1 === 0 && value.length === 5;
   }, message);
-  module.lp.form.data.validationRules[field].zipCode = true;
+
+  var rule = module.lp.form.data.validationRules[field];
+  if ( rule ) rule.zipCode = true;
 
 });

@@ -8,6 +8,8 @@ lp.jQuery(function($) {
   $.validator.addMethod('canadianPostalCode', function(value) {
     return /^([a-zA-Z]\d[a-zA-z]\s?\d[a-zA-Z]\d)$/.test(value);
   }, message);
-  module.lp.form.data.validationRules[field].canadianPostalCode = true;
+
+  var rule = module.lp.form.data.validationRules[field];
+  if ( rule ) rule.canadianPostalCode = true;
 
 });

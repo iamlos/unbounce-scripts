@@ -8,6 +8,8 @@ lp.jQuery(function($) {
   $.validator.addMethod('notWebmail', function(value) {
     return !/\@(gmail|googlemail|hotmail|live|msn|outlook|yahoo|ymail|aol)\./.test(value);
   }, message);
-  module.lp.form.data.validationRules[field].notWebmail = true;
+
+  var rule = module.lp.form.data.validationRules[field];
+  if ( rule ) rule.notWebmail = true;
 
 });
