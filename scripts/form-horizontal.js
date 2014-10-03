@@ -31,7 +31,7 @@ HorizontalForm.prototype.layout = function() {
   var tallest = this.fields.eq(0).height();
 
   // Get the maximum width the form can be
-  var maxWidth = this.$('.lp-pom-block').eq(0).width() - this.form.position().left;
+  var maxWidth = this.$('.lp-pom-block-content').eq(0).width() - this.form.position().left;
 
   var top = 0;
   var left = 0;
