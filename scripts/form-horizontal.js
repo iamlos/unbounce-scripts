@@ -1,5 +1,5 @@
 function HorizontalForm(spacing, submitPlacement) {
-  var self = this;
+  var _this = this;
 
   this.spacing = spacing;
   this.submitPlacement = submitPlacement;
@@ -13,12 +13,12 @@ function HorizontalForm(spacing, submitPlacement) {
 
   // Lay the form out when ready
   this.$(function(){
-    self.layout();
+    _this.layout();
   });
 
   // Re-layout when breakpoint changes
   this.$(window).resize(function() {
-    self.layout();
+    _this.layout();
   });
 }
 
@@ -71,7 +71,7 @@ HorizontalForm.prototype.layout = function() {
 
     // If it's a field without a label, add additional vertical offset
     } else if ( !this.$(field).children('label').length ) {
-      thisTop = top + 19;
+      field.find(':input').css('top', '21px');
     }
 
     // Position the field
@@ -89,7 +89,7 @@ HorizontalForm.prototype.layout = function() {
   this.form.css({
     'right': '0',
     'width': 'auto',
-    'height': top + tallest +'px'
+    'height': top + tallest + 'px'
   });
 
 };
