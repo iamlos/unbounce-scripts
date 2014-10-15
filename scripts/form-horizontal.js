@@ -71,7 +71,7 @@ HorizontalForm.prototype.layout = function() {
 
     // If it's a field without a label, add additional vertical offset
     } else if ( !this.$(field).children('label').length ) {
-      field.find(':input').css('top', '21px');
+      thisTop = top + 19;
     }
 
     // Position the field
