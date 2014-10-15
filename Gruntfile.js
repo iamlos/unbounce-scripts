@@ -3,6 +3,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+
+    // Get info from Git
+    gitinfo: {},
+
     // Lint all JS files
     jshint: {
       all: ['scripts/*.js'],
@@ -28,9 +32,9 @@ module.exports = function(grunt) {
           }
         },
         banner: '<script>\n\n' +
-                '  // unbounce-horizontal-forms <%= grunt.template.today("dd-mm-yyyy") %>\n  ',
+                '  // unbounce-horizontal-forms <%= gitinfo.local.branch.current.shortSHA %>\n  ',
         footer: '  \n\n' +
-                '  // First parameter is spacing between fields\n' +
+                '  // First parameter is spacing between fields, e.g. 20px\n' +
                 '  // Second parameter is submit button placement. Options:\n' +
                 '  //    - \'inline\': in line with the fields\n' +
                 '  //    - \'newline\': on a new line\n' +
@@ -48,6 +52,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-gitinfo');
 
-  grunt.registerTask('default', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['gitinfo', 'jshint', 'uglify']);
 };
