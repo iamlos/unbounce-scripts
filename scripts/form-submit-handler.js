@@ -22,7 +22,7 @@ function yourSubmitFunction(e, $) {
   dataLayer.push({'event': 'gtm.formSubmit'});
 
   // If your code is asynchronous, call this final line as a callback to your code instead
-  $('form').submit();
+  $('.lp-pom-form form').submit();
 }
 
 lp.jQuery(function($) {
