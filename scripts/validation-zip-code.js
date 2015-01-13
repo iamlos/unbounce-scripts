@@ -1,15 +1,16 @@
 lp.jQuery(function($) {
 
-  // Config
-  var field = 'email';
+  var ruleID = 'zipCode'
+  var field = 'zip_code';
   var message = 'Please enter a valid ZIP code';
 
-  // Define the rule and apply it to the field
-  $.validator.addMethod('zipCode', function(value) {
-    return !isNaN(value) && value % 1 === 0 && value.length === 5;
+  var rules = module.lp.form.data.validationRules[field];
+
+  $.validator.addMethod(ruleID, function(value, field) {
+    var valid = /^\d{5}([\-]?\d{4})?$/.test(value);
+    return valid || (!rules.required && !value);
   }, message);
 
-  var rule = module.lp.form.data.validationRules[field];
-  if ( rule ) rule.zipCode = true;
+  rules[ruleID] = true;
 
 });

@@ -1,15 +1,16 @@
 lp.jQuery(function($) {
 
-  // Config
+  var ruleID = 'canadianPostalCode';
   var field = 'postal_code';
   var message = 'Please enter a valid Canadian postal code';
 
-  // Define the rule and apply it to the field
-  $.validator.addMethod('canadianPostalCode', function(value) {
-    return /^([a-zA-Z]\d[a-zA-z]\s?\d[a-zA-Z]\d)$/.test(value);
+  var rules = module.lp.form.data.validationRules[field];
+
+  $.validator.addMethod(ruleID, function(value, field) {
+    var valid = /^([a-zA-Z]\d[a-zA-z]\s?\d[a-zA-Z]\d)$/.test(value);
+    return valid || (!rules.required && !value);
   }, message);
 
-  var rule = module.lp.form.data.validationRules[field];
-  if ( rule ) rule.canadianPostalCode = true;
+  rules[ruleID] = true;
 
 });

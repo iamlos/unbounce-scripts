@@ -1,15 +1,16 @@
 lp.jQuery(function($) {
 
-  // Config
-  var field = 'email';
-  var message = 'Please enter your business email address.';
+  var ruleID = 'notWebmail';
+  var field = 'email_address';
+  var message = 'Please enter your work mail address.';
 
-  // Define the rule and apply it to the field
-  $.validator.addMethod('notWebmail', function(value) {
-    return !/\@(gmail|googlemail|hotmail|live|msn|outlook|yahoo|ymail|aol)\./.test(value);
+  var rules = module.lp.form.data.validationRules[field];
+
+  $.validator.addMethod(ruleID, function(value, field) {
+    var valid = /\@(?!(me|mac|icloud|gmail|googlemail|hotmail|live|msn|outlook|yahoo|ymail|aol)\.)/.test(value.toLowerCase());
+    return valid || (!rules.required && !value);
   }, message);
 
-  var rule = module.lp.form.data.validationRules[field];
-  if ( rule ) rule.notWebmail = true;
+  rules[ruleID] = true;
 
 });
