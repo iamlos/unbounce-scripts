@@ -3,16 +3,18 @@ function HorizontalForm(spacing, submitPlacement) {
 
   this.spacing = spacing;
   this.submitPlacement = submitPlacement;
-  this.$ = lp.jQuery;
+  this.$ = window.lp.jQuery;
 
-  // Grab all form fields and the submit button
-  this.form = this.$('.lp-pom-form').eq(0);
-  this.fields = this.$('div.lp-pom-form-field');
-  this.button = this.$('.lp-pom-form .lp-pom-button').eq(0);
-  if ( this.submitPlacement !== 'manual' ) this.fields = this.fields.add( this.button );
+  // Wait for the DOM to load
+  this.$(function() {
 
-  // Lay the form out when ready
-  this.$(function(){
+    // Grab all form fields and the submit button
+    _this.form = _this.$('.lp-pom-form').eq(0);
+    _this.fields = _this.$('div.lp-pom-form-field');
+    _this.button = _this.$('.lp-pom-form .lp-pom-button').eq(0);
+    if ( _this.submitPlacement !== 'manual' ) _this.fields = _this.fields.add( _this.button );
+
+    // Lay out the form
     _this.layout();
   });
 
