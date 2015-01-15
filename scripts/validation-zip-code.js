@@ -1,6 +1,6 @@
 lp.jQuery(function($) {
 
-  var ruleID = 'zipCode'
+  var ruleID = 'zipCode';
   var field = 'zip_code';
   var message = 'Please enter a valid ZIP code';
 

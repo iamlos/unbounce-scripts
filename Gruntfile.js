@@ -12,7 +12,6 @@ module.exports = function(grunt) {
       all: ['scripts/*.js'],
       options: {
         camelcase: true,
-        eqeqeq: true,
         indent: 2,
         latedef: true,
         newcap: true,
