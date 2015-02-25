@@ -48,8 +48,10 @@ HorizontalForm.prototype.layout = function() {
     // Check if the right edge of this field will be beyond maximum width
     if ( left + width > maxWidth ) {
 
-      // If so, start a new line under the tallest field on current line
-      top = top + tallest + this.spacing;
+      // If so, start a new line under the tallest field on current line -
+      // unless this is the first field, which means the script isn't going
+      // to change the layout at all, e.g. on mobile
+      top = i === 0 ? top: top + tallest + this.spacing;
       left = 0;
 
       // Reset tallest to current field, for now

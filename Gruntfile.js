@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                 '  //    - \'inline\': in line with the fields\n' +
                 '  //    - \'newline\': on a new line\n' +
                 '  //    - \'manual\': wherever you place the button in the page builder\n' +
-                '  new HorizontalForm(20, \'inline\');\n\n' +
+                '  new HorizontalForm(20, \'manual\');\n\n' +
                 '</script>'
       },
       build: {
