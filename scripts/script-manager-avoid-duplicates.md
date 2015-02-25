@@ -1,5 +1,14 @@
-<!-- UNIVERSAL ANALYTICS -->
-<!-- Replace UA-XXXXXXX-X with your tracking code -->
+These are JavaScript snippets that wrap around the Script Manager versions of a tracking script,
+and ensure that the script won’t be run twice. Using these snippets does require a working knowledge
+of JavaScript. This is definitely a hacky workaround, and in most cases, the much better solution
+is to manually remove the scripts from individual pages.
+
+
+
+## Universal Analytics
+*Replace `UA-XXXXXXX-X` with your tracking code*
+
+```html
 <script>
   if ( typeof ga === 'undefined') {
 
@@ -15,10 +24,15 @@
 
   }
 </script>
+```
 
 
-<!-- CLASSIC ANALYTICS -->
-<!-- Replace UA-XXXXX-X with your tracking code -->
+
+
+## Classic Analytics
+*Replace `UA-XXXXX-X` with your tracking code*
+
+```html
 <script>
   if ( typeof _gaq === 'undefined' ) {
 
@@ -36,22 +50,25 @@
 
   }
 </script>
+```
 
 
 
-<!-- ADWORDS CONVERSION TRACKING -->
-<script>
 
-  // Take the regular script and add this line to bottom of CDATA section
-  // (right after the last var statement, e.g. var google_remarketing_only = false;)
-  if ( lp && lp.jQuery('script[src="//www.googleadservices.com/pagead/conversion.js"]').length > 0 ) google_conversion_id = 0;
+## Adwords Conversion Tracking
+*Take the regular script and add this line to bottom of CDATA section (right after the last `var` statement, e.g. `var google_remarketing_only = false;`*
 
-</script>
-
+```javascript
+if ( lp && lp.jQuery('script[src="//www.googleadservices.com/pagead/conversion.js"]').length > 0 ) google_conversion_id = 0;
+```
 
 
-<!-- GOOGLE TAG MANAGER -->
-<!-- Replace GTM-XXXXXX with your container ID -->
+
+
+## Google Tag Manager
+*Replace `GTM-XXXXXX` with your container ID*
+
+```html
 <script>
   if ( typeof dataLayer !== 'object' ) {
 
@@ -65,11 +82,15 @@
 
   }
 </script>
+```
 
 
 
-<!-- KISSMETRICS -->
-<!-- Replace XXXXXXXX with your _kmk ID -->
+
+## Kissmetrics
+*Replace `XXXXXXXX` with your _kmk ID*
+
+```
 <script>
   if ( typeof _kmq === 'undefined') {
 
@@ -90,3 +111,4 @@
 
   }
 </script>
+```
