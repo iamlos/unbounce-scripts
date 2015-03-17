@@ -5,42 +5,46 @@ function HorizontalForm(spacing, submitPlacement) {
   this.submitPlacement = submitPlacement;
   this.$ = window.lp.jQuery;
 
-  // Wait for the DOM to load
+  // Wait for the DOM
   this.$(function() {
 
     // Grab all form fields and the submit button
-    _this.form = _this.$('.lp-pom-form').eq(0);
-    _this.fields = _this.$('div.lp-pom-form-field');
-    _this.button = _this.$('.lp-pom-form .lp-pom-button').eq(0);
-    if ( _this.submitPlacement !== 'manual' ) _this.fields = _this.fields.add( _this.button );
+    _this.$form = _this.$('.lp-pom-form').eq(0);
+    _this.$fields = _this.$('div.lp-pom-form-field');
+    _this.$button = _this.$('.lp-pom-form .lp-pom-button').eq(0);
+
+    if ( _this.submitPlacement !== 'manual' ) {
+      _this.$fields = _this.$fields.add( _this.$button );
+    }
 
     // Lay out the form
-    _this.layout();
+    _this.doLayout();
   });
 
-  // Re-layout when breakpoint changes
+  // Lay out the form again when breakpoint changes
   this.$(window).resize(function() {
-    _this.layout();
+    _this.doLayout();
   });
 }
 
-HorizontalForm.prototype.layout = function() {
+HorizontalForm.prototype.doLayout = function() {
 
   // Work out the horizontal offset of fields
-  var width = this.fields.eq(0).width() + this.spacing;
+  var width = this.$fields.eq(0).width() + this.spacing;
 
   // Record the first field's height as tallest for now
-  var tallest = this.fields.eq(0).height();
+  var tallest = this.$fields.eq(0).height();
 
   // Get the maximum width the form can be
-  var maxWidth = this.$('.lp-pom-block-content').eq(0).width() - this.form.position().left;
+  // Parent will either be .lp-positioned-content or .lp-pom-box
+  var maxWidth = this.$form.parent().width() - this.$form.position().left;
 
   var top = 0;
   var left = 0;
 
   // Loop through each field
-  for ( var i = 0 ; i < this.fields.length ; i ++ ) {
-    field = this.fields.eq(i);
+  for ( var i = 0 ; i < this.$fields.length ; i ++ ) {
+    field = this.$fields.eq(i);
 
     // Add a new 'width' amount to last field's left position for placement later
     left = i === 0 ? left : left + width;
@@ -69,7 +73,7 @@ HorizontalForm.prototype.layout = function() {
       } else {
         // Format button to better align with form fields
         thisTop = top + 19;
-        var submitHeight = this.form.find(':text').eq(0).height();
+        var submitHeight = this.$form.find(':text').eq(0).height();
         field.css('height', submitHeight - 1 + 'px');
       }
 
@@ -80,20 +84,20 @@ HorizontalForm.prototype.layout = function() {
 
     // Position the field
     field.css({
-      'top': thisTop + 'px',
-      'left': left + 'px'
+      top: thisTop + 'px',
+      left: left + 'px'
     });
 
     // If this field is taller than the others on this line so far, record it as the tallest
-    if ( field.height() > tallest ) tallest = field.height();
+    if ( field.height() > tallest ) { tallest = field.height(); }
 
   }
 
   // Resize the form container so error boxes are positioned better
-  this.form.css({
-    'right': '0',
-    'width': 'auto',
-    'height': top + tallest + 'px'
+  this.$form.css({
+    right: '0',
+    width: 'auto',
+    height: top + tallest + 'px'
   });
 
 };
